@@ -1,0 +1,329 @@
+/* =========================================================
+   TRAVIA — CLEAN SINGLE STYLE (style.css)
+   Works with CURRENT markup/classes across pages.
+   Dark + Gold, mobile-first. No old conflicts.
+========================================================= */
+
+:root{
+  --bg:#0b0f14;
+  --card:rgba(15,22,33,.82);
+  --card2:rgba(12,18,28,.78);
+  --line:rgba(255,218,106,.22);
+  --line2:rgba(255,255,255,.08);
+  --gold:#ffda6a;
+  --gold2:#ff9f2f;
+  --text:#e9edf6;
+  --muted:rgba(233,237,246,.72);
+  --shadow:0 12px 30px rgba(0,0,0,.45);
+  --r:18px;
+  --r2:14px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 700px at 50% 0%, rgba(255,218,106,.06), transparent 55%),
+    radial-gradient(1000px 600px at 50% 100%, rgba(255,159,47,.05), transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+a{color:var(--gold);text-decoration:none}
+a:active{opacity:.9}
+img{max-width:100%;height:auto;display:block}
+
+/* Page shell */
+.page{min-height:100%; padding-top:72px;}
+.shell{max-width:860px;margin:0 auto;padding:12px;}
+
+/* ===== Top dock (ui_topbar.php) ===== */
+.topDock{
+  position:fixed; left:0; right:0; top:0;
+  z-index:1000;
+  display:flex; align-items:center; gap:10px;
+  padding:10px 12px;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line2);
+}
+.dockBtn{
+  width:44px; height:44px;
+  display:grid; place-items:center;
+  border-radius: 18px;
+  border:1px solid var(--line2);
+  background: rgba(0,0,0,.25);
+  color: var(--text);
+  font-size: 20px;
+}
+.dockBtn.active{
+  border-color: rgba(255,218,106,.35);
+  background: rgba(255,218,106,.08);
+}
+.dockSpacer{flex:1}
+.langToggle{
+  display:flex; gap:6px;
+  padding:6px;
+  border-radius: 18px;
+  border:1px solid var(--line2);
+  background: rgba(0,0,0,.22);
+}
+.langBtn{
+  padding:8px 12px;
+  border-radius: 14px;
+  font-weight:900;
+  color: var(--muted);
+}
+.langBtn.active{
+  color: var(--text);
+  border:1px solid rgba(255,218,106,.35);
+  background: rgba(255,218,106,.08);
+}
+
+/* ===== Panels / Cards ===== */
+.panel, .card{
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.12)), var(--card);
+  border:1px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+  margin: 12px 0;
+}
+.panelHeader{
+  display:flex; align-items:center; gap:10px;
+  padding:12px 14px;
+  border-bottom:1px solid var(--line2);
+  background: rgba(0,0,0,.20);
+}
+.title{
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--gold);
+  font-size:16px;
+}
+.subtitle{
+  margin-top:4px;
+  font-size:13px;
+  color:var(--muted);
+}
+.pill{
+  margin-left:auto;
+  width:36px;height:36px;
+  display:grid;place-items:center;
+  border-radius:12px;
+  border:1px solid var(--line2);
+  background: rgba(0,0,0,.25);
+  color: var(--text);
+}
+
+/* ===== Buttons ===== */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:16px;
+  border:1px solid var(--line2);
+  background: rgba(0,0,0,.22);
+  color:var(--text);
+  font-weight:900;
+}
+.btn.small{padding:8px 12px; border-radius:14px; font-size:14px;}
+.btn.danger{
+  border-color: rgba(255,50,50,.35);
+  background: linear-gradient(180deg, rgba(255,50,50,.25), rgba(0,0,0,.18));
+}
+
+/* ===== Lists (menu, village, city) ===== */
+.list{ padding: 6px 10px 12px; }
+.listRow{
+  display:flex; align-items:center; gap:10px;
+  padding:10px 10px;
+  border-radius: var(--r2);
+  background: rgba(0,0,0,.16);
+  border: 1px solid var(--line2);
+  margin-top:10px;
+}
+.listMain{flex:1; min-width:0; display:flex; align-items:center; gap:10px;}
+.rowIcon{font-size:18px; opacity:.95;}
+.listTitle{
+  font-weight:900;
+  color: var(--text);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.listAct{display:flex; align-items:center;}
+.upBtn{
+  width:46px;height:46px;
+  border-radius:18px;
+  display:grid; place-items:center;
+  border:1px solid rgba(255,218,106,.30);
+  background: rgba(255,218,106,.08);
+  color: var(--text);
+}
+
+/* ===== Small headings / text ===== */
+.titled{
+  padding:12px 14px;
+  border-bottom:1px solid var(--line2);
+  font-weight:900;
+  color: var(--gold);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.muted{ color: var(--muted); }
+
+/* =========================================================
+   RESOURCE PANEL (game.php) — uses existing classes:
+   .rLine .rIco .rBarWrap .rBar .rFill .rText
+========================================================= */
+#resPanel{ margin-top: 12px; }
+.rLine{
+  display:grid;
+  grid-template-columns: 36px 1fr;
+  gap:10px;
+  padding:10px 12px;
+  border-top:1px solid var(--line2);
+}
+.rLine:first-of-type{ border-top:none; }
+.rIco{
+  width:36px;height:36px;
+  border-radius:14px;
+  display:grid; place-items:center;
+  background: rgba(0,0,0,.25);
+  border:1px solid var(--line2);
+  font-size:18px;
+}
+.rBarWrap{min-width:0;}
+.rBar{
+  position:relative;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.10);
+  overflow:hidden;
+}
+.rFill{
+  position:absolute; left:0; top:0; bottom:0;
+  width:0%;
+  background: linear-gradient(90deg, rgba(255,218,106,.85), rgba(255,159,47,.90));
+}
+/* Amount label (left) */
+.rText{
+  position:absolute; left:10px; top:50%;
+  transform:translateY(-50%);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing:.01em;
+  color: var(--text);
+  text-shadow: 0 2px 10px rgba(0,0,0,.5);
+}
+
+/* Right info line in your current markup is plain text near bar in some versions.
+   Keep it tiny if it appears inside .rBarWrap as .rRight/.right. */
+.rBarWrap .right,
+.rBarWrap .rRight,
+.resTop .right{
+  font-size: 7px !important;
+  line-height: 1 !important;
+  color: rgba(233,237,246,.70) !important;
+  white-space: nowrap;
+}
+
+/* Pop/crop line under resources (old + new) */
+.resMetaLine, .metaLine{
+  margin-top:10px;
+  padding:10px 12px 12px;
+  border-top:1px solid var(--line2);
+  font-size:12px;
+  color: rgba(233,237,246,.75);
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.resMetaLine b, .metaLine b{ color:#fff; font-weight:900; }
+.resMetaDot, .metaDot{ opacity:.45; }
+
+/* =========================================================
+   Default table/forms safety (other pages)
+========================================================= */
+table{width:100%; border-collapse:separate; border-spacing:0; background: rgba(0,0,0,.14); border:1px solid var(--line2); border-radius: var(--r); overflow:hidden;}
+th,td{padding:10px 10px; border-bottom:1px solid var(--line2); font-size:14px;}
+th{color:var(--muted); font-weight:900; background: rgba(0,0,0,.18);}
+tr:last-child td{border-bottom:none;}
+input,select,textarea{width:100%; padding:10px 12px; border-radius:14px; border:1px solid var(--line2); background: rgba(0,0,0,.25); color:var(--text); outline:none;}
+
+/* Responsive tweaks */
+@media (max-width:420px){
+  .shell{padding:10px;}
+  .dockBtn{width:42px;height:42px;border-radius:18px;}
+  .title{font-size:15px;}
+  th,td{font-size:13px; padding:9px 9px;}
+  .rLine{padding:9px 10px;}
+  .rText{font-size:12px;}
+}
+
+
+
+/* === Resource bar (sutarta versija) === */
+.rLine{display:flex;align-items:center;gap:10px;padding:10px 12px;margin:10px 0;border-radius:18px;background:rgba(0,0,0,.25);border:1px solid rgba(255,215,0,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.03);}
+.rIco{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35);border:1px solid rgba(255,215,0,.10);font-size:20px;flex:0 0 44px;}
+.rBody{flex:1;min-width:0;}
+.rTop{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:6px;}
+.rAmt{font-size:12px;font-weight:700;letter-spacing:.5px;color:#e9eef6;white-space:nowrap;}
+.rInfo{font-size:4px;opacity:.85;color:#cfd6e2;white-space:nowrap;}
+.rSep{opacity:.6;margin:0 6px;}
+.rBar{height:10px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.06);box-shadow:inset 0 0 10px rgba(0,0,0,.35);}
+.rFill{height:100%;background:linear-gradient(90deg, rgba(200,155,70,.70), rgba(240,200,90,.85));border-radius:999px;}
+@media (max-width:420px){
+  .rLine{padding:9px 10px;border-radius:16px}
+  .rIco{width:40px;height:40px;border-radius:13px;font-size:18px;flex-basis:40px}
+  .rAmt{font-size:11px}
+  .rBar{height:9px}
+  .rInfo{font-size:4px}
+}
+
+/* Res info (jei kur nors dar yra senas selektorius) */
+.resTop .right{font-size:4px !important;}
+
+
+/* === Village resursų laukų sąrašas (kompaktiškai, be papildomų FIELD_* antraščių) === */
+.fieldGroup{margin-top:0;}
+.fieldGroupHeader{display:none;}
+
+/* Group titles between wood/clay/iron/crop */
+.fieldGroupTitle{display:flex;align-items:center;gap:10px;margin:14px 6px 6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#cfcfcf;opacity:.9;}
+.fieldGroupIcon{font-size:14px;opacity:.95;}
+.fieldGroupSpacer{height:6px;}
+
+/* Rows */
+.fieldRow{padding:10px 12px;border-radius:18px;}
+.fieldRow .left .title{font-size:14px;}
+.fieldRow .left .meta{font-size:11px;opacity:.75;margin-top:2px;}
+.fieldRow .right .lvl{font-size:12px;}
+.fieldRow .right .upgradeBtn{width:44px;height:44px;border-radius:16px;}
+@media (max-width:420px){
+  .fieldGroupHeader{padding:7px 10px;border-radius:12px;font-size:11px}
+  .fieldGroupTitle{margin:12px 4px 6px;font-size:11px}
+  .fieldRow{padding:9px 10px;border-radius:16px}
+  .fieldRow .right .upgradeBtn{width:40px;height:40px;border-radius:14px}
+}
+
+/* ---- village.php layout fix (fieldMain/fieldName/fieldLvl + lightning button) ---- */
+.villageFields .fieldRow{display:flex !important;align-items:center !important;justify-content:space-between !important;gap:12px !important;}
+.villageFields .fieldMain{display:flex !important;align-items:center !important;justify-content:space-between !important;gap:12px !important;flex:1 !important;min-width:0 !important;text-decoration:none !important;color:inherit !important;}
+.villageFields .fieldName{font-weight:800 !important;font-size:14px !important;white-space:nowrap !important;overflow:hidden !important;text-overflow:ellipsis !important;}
+.villageFields .fieldLvl{font-size:10px !important;color:rgba(255,255,255,.78) !important;white-space:nowrap !important;}
+.villageFields .fieldAct{flex:0 0 auto !important;display:flex !important;align-items:center !important;}
+.villageFields .fieldUpBtn{width:36px !important;height:36px !important;border-radius:14px !important;border:1px solid rgba(214,167,71,.55) !important;background:linear-gradient(180deg, rgba(214,167,71,.28), rgba(214,167,71,.12)) !important;color:#f4d27a !important;font-weight:900 !important;font-size:18px !important;box-shadow:0 6px 18px rgba(0,0,0,.35) !important;display:flex !important;align-items:center !important;justify-content:center !important;}
+.villageFields .fieldUpBtn:disabled{opacity:.45 !important;filter:grayscale(35%) !important;}
+.villageFields .fieldGroupTitle{margin:14px 0 8px !important;}
+@media (max-width:420px){
+  .villageFields .fieldRow{padding:8px !important;border-radius:16px !important;margin:8px 0 !important;}
+  .villageFields .fieldName{font-size:13px !important;}
+  .villageFields .fieldLvl{font-size:9px !important;}
+  .villageFields .fieldUpBtn{width:34px !important;height:34px !important;border-radius:12px !important;font-size:16px !important;}
+}
